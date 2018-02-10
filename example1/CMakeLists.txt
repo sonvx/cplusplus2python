@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.10)
+FIND_PACKAGE(PythonInterp 3)
+FIND_PACKAGE(PythonLibs 3)
+FIND_PACKAGE(Boost COMPONENTS python)
+PYTHON_ADD_MODULE(classes classes.cpp)
+FILE(COPY classes.py DESTINATION .)
+ADD_TEST(NAME 02-ExposingClasses COMMAND ${PYTHON_EXECUTABLE} classes.py)
